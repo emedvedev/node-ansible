@@ -2,6 +2,14 @@
 - name: Network node management
   hosts: all
   tasks:
+    - name: Install Erlang for RabbitMQ
+      include_role:
+        name: rockandska.erlang
+        apply:
+          tags: always
+      tags:
+        - install_rabbitmq
+  
     - name: Install RabbitMQ
       include_role:
         name: geerlingguy.rabbitmq
