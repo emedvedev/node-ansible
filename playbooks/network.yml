@@ -4,7 +4,7 @@
   tasks:
     - name: Install RabbitMQ
       include_role:
-        name: stone-payments.rabbitmq
+        name: geerlingguy.rabbitmq
         apply:
           tags: always
       tags:
