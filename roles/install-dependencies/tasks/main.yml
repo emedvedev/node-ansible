@@ -2,11 +2,11 @@
 # tasks file for install_dependencies
 
 - name: Run the equivalent of "apt-get update" as a separate step
-  action: {{ ansible_pkg_mgr }} update_cache=yes
+  action: "{{ ansible_pkg_mgr }} update_cache=yes"
   become: true
 
 - name: Install build-essential
-  action: {{ ansible_pkg_mgr }} pkg=build-essential
+  action: "{{ ansible_pkg_mgr }} pkg=build-essential"
   become: true
 
 - name: Remove old go bin directory
@@ -37,13 +37,13 @@
   become: true
 
 - name: Install jq
-  action: {{ ansible_pkg_mgr }} pkg=jq
+  action: "{{ ansible_pkg_mgr }} pkg=jq"
   become: true
   
 - name: Install git
-  action: {{ ansible_pkg_mgr }} pkg=git
+  action: "{{ ansible_pkg_mgr }} pkg=git"
   become: true
 
 - name: Install rabbitmq-server
-  action: {{ ansible_pkg_mgr }} pkg=rabbitmq-server
+  action: "{{ ansible_pkg_mgr }} pkg=rabbitmq-server"
   become: true
