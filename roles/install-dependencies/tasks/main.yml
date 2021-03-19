@@ -1,13 +1,19 @@
 ---
 # tasks file for install_dependencies
 
-- name: Run the equivalent of "apt-get update" as a separate step
+- name: Update OS packages
   action: "{{ ansible_pkg_mgr }} update_cache=yes"
   become: true
 
-- name: Install build-essential
-  action: "{{ ansible_pkg_mgr }} pkg=build-essential"
+- name: Install build-essential (apt)
+  action: "apt pkg=build-essential"
   become: true
+  only_if: "'$ansible_pkg_mgr' == 'apt'"
+
+- name: Install Development tools (yum)
+  action: "yum pkg='@Development tools'"
+  become: true
+  only_if: "'$ansible_pkg_mgr' == 'yum'"
 
 - name: Remove old go bin directory
   file:
