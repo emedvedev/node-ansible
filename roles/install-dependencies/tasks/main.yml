@@ -50,6 +50,6 @@
   action: "{{ ansible_pkg_mgr }} pkg=git"
   become: true
 
-- name: Install rabbitmq-server
-  action: "{{ ansible_pkg_mgr }} pkg=rabbitmq-server"
-  become: true
+#- name: Install rabbitmq-server
+#  action: "{{ ansible_pkg_mgr }} pkg=rabbitmq-server"
+#  become: true
